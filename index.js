@@ -4,7 +4,6 @@ window.onload = () => {
 
 
 const barcode = () => {
-    console.log(new Date())
 	const liveStreamConfig = {
 			inputStream: {
 				type : "LiveStream",
