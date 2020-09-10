@@ -1,7 +1,9 @@
+window.onload = () => {
+    barcode();
+}
 
 
-
-$(function() {
+const barcode = () => {
 	// Create the QuaggaJS config object for the live stream
 	var liveStreamConfig = {
 			inputStream: {
@@ -93,4 +95,4 @@ $(function() {
 			Quagga.decodeSingle($.extend({}, fileConfig, {src: URL.createObjectURL(e.target.files[0])}), function(result) {alert(result.codeResult.code);});
 		}
 	});
-});
+}
