@@ -24,8 +24,6 @@ const barcode = () => {
 			locate: true
 		};
 	
-    const fileConfig = Object.assign(liveStreamConfig,{inputStream: {size: 800}})
-	
 	document.getElementById('scanner_input').addEventListener('focus', () => {
 		const btn = document.createElement('button');
 		btn.dataset.toggle = 'modal';
