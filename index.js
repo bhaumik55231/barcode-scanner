@@ -2,7 +2,6 @@ window.onload = () => {
     barcode();
 }
 
-
 const barcode = () => {
 	const liveStreamConfig = {
 			inputStream: {
@@ -28,9 +27,15 @@ const barcode = () => {
 		};
 	
     const fileConfig = Object.assign(liveStreamConfig,{inputStream: {size: 800}})
-    
-    document.getElementById('modalBtn').addEventListener('click', () => {
-        Quagga.init(
+	
+	document.getElementById('scanner_input').addEventListener('focusin', () => {
+		const btn = document.createElement('button');
+		btn.dataset.toggle = 'modal';
+		btn.dataset.target = '#livestream_scanner';
+		btn.hidden = true;
+		document.body.appendChild(btn);
+		btn.click();
+		Quagga.init(
 			liveStreamConfig, 
 			function(err) {
 				if (err) {
@@ -40,7 +45,8 @@ const barcode = () => {
 				Quagga.start();
 			}
 		);
-    });
+		document.body.removeChild(btn);
+	});
 	
 	Quagga.onProcessed(result => {
 		const drawingCtx = Quagga.canvas.ctx.overlay,
