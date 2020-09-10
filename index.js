@@ -19,9 +19,7 @@ const barcode = () => {
 			},
 			numOfWorkers: (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 4),
 			decoder: {
-				"readers":[
-					{"format":"ean_reader","config":{}}
-				]
+				"readers":["code_128_reader"]
 			},
 			locate: true
 		};
