@@ -4,8 +4,8 @@ window.onload = () => {
 
 
 const barcode = () => {
-	// Create the QuaggaJS config object for the live stream
-	var liveStreamConfig = {
+    console.log(new Date())
+	const liveStreamConfig = {
 			inputStream: {
 				type : "LiveStream",
 				constraints: {
@@ -28,16 +28,8 @@ const barcode = () => {
 			locate: true
 		};
 	
-	var fileConfig = $.extend(
-			{}, 
-			liveStreamConfig,
-			{
-				inputStream: {
-					size: 800
-				}
-			}
-        );
-        
+	const fileConfig = Object.assign(liveStreamConfig,{inputStream: {size: 800}})
+    console.log(fileConfig)
 	$('#livestream_scanner').on('shown.bs.modal', function (e) {
 		Quagga.init(
 			liveStreamConfig, 
